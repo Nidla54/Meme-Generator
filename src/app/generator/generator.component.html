@@ -1,0 +1,79 @@
+<div class="w-screen flex flex-row gap-8">
+  <!--GENERATOR-->
+
+  <div class="pt-9 w-1/2 pl-36 ">
+    <!--LEFT SIDE-->
+
+
+    <form class="w-1/2">
+      <div class="flex flex-col">
+        <!--PICK AN IMAGE-->
+
+        <label class="text-xl pb-5">Select an Image</label>
+        <input class="" type="file" accept="image/*" (change)="preview($event)">
+      </div>
+
+      <div class="flex flex-col">
+        <!--TOP TEXT-->
+
+        <label class="text-xl p-3">Top Text</label>
+        <input class="w-96 h-12 rounded p-3 text-xl border-2 border-black" type="text" name="topText"
+          [(ngModel)]='topText' (keyup)="drawText()">
+
+      </div>
+
+      <div class="flex flex-col">
+        <!--BOTTOM TEXT-->
+
+        <label class="text-xl p-3">Bottom Text</label>
+        <input class="w-96 h-12 rounded p-3 text-xl border-2 border-black" type="text" name="bottomText"
+          [(ngModel)]='bottomText' (keyup)="drawText()">
+
+      </div>
+
+      <div class="mt-5 flex flex-row gap-4">
+        <!--COLOR CHROME-->
+
+        <div>
+          <!--TEXT COLOR CHROME-->
+          <label>Text Color</label>
+          <color-chrome (onChangeComplete)="canvasTextColor($event)"></color-chrome>
+        </div>
+
+        <div>
+          <!--BACKGROUND COLOR CHROME-->
+          <label>Background Color</label>
+          <color-chrome (onChangeComplete)="canvasBackgroundColor($event)"></color-chrome>
+        </div>
+
+
+      </div>
+
+      <div class="pt-6 flex justify-center items-center">
+        <!--DOWNLOAD BUTTON-->
+
+        <button class="py-3 px-5 bg-blue-700 rounded text-xl hover:scale-105 font-mono font-bold"
+          (click)="downloadImg()">Download</button>
+      </div>
+
+    </form>
+
+
+
+  </div>
+
+
+  <div class="w-1/2 p-5 pt-10 pr-20">
+    <!--RIGHT SIDE-->
+
+    <div>
+      <!--CANVAS-->
+
+      <canvas class="border-black border-2" #memeCanvas width="500" height="600"></canvas>
+
+    </div>
+
+
+
+  </div>
+</div>
